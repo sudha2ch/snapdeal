@@ -1,0 +1,7 @@
+FROM dockerfile/java:oracle-java8
+
+VOLUME /tmp
+ADD snapdeal.jar /opt/snapdeal/
+EXPOSE 8080
+WORKDIR /opt/snapdeal/
+CMD ["java", "-Djava.security.egd=file:/dev/./urandom", "-Xms512m", "-Xmx1g", "-jar", "snapdeal.jar"]
